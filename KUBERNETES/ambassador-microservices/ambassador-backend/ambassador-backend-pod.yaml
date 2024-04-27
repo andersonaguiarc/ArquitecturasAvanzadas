@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ambassador-backend
+  labels:
+    app: backend
+spec:
+  containers:
+    - name: ambassador-backend-container
+      image: juandperdomoq/ambassador-backend:latest
+      ports:
+        - containerPort: 8000

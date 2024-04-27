@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ambassador-backend-deployment
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      name: ambassador-backend
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: ambassador-backend-container
+          image: juandperdomoq/ambassador-node:v1 #reemplazar refactor ambassador-BE
+          ports:
+            - containerPort: 8000
+          env:
+            - name: MYSQL_ORM_TYPE
+              value: "mysql"
+            - name: MYSQL_ORM_HOST
+              value: "db"
+            - name: MYSQL_ORM_PORT
+              value: "3306"
+            - name: MYSQL_ORM_USERNAME
+              value: "root"
+            - name: MYSQL_ORM_PASSWORD
+              value: "root"
+            - name: MYSQL_ORM_DATABASE
+              value: "ambassador"

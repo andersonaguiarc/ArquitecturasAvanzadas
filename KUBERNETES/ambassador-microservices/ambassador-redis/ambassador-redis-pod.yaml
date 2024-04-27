@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ambassador-redis
+  labels:
+    app: backend
+spec:
+  containers:
+    - name: redis
+      image: juandperdomoq/ambassador-redis:latest
+      ports:
+        - containerPort: 6379

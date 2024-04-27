@@ -1,0 +1,10 @@
+spec:
+  ports:
+    - name: postgres-listen
+      port: 11111
+      protocol: TCP
+      targetPort: 11111
+    - name: redis-listen
+      port: 22222
+      protocol: TCP
+      targetPort: 22222
